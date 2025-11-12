@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:immidart_task/src/features/login/presentation/screens/home_screen.dart';
+import 'package:immidart_task/src/features/home/presentation/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());

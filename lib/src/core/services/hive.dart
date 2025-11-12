@@ -1,20 +1,20 @@
-// import 'package:hive/hive.dart';
-// import '../models/user_model.dart';
-// import 'package:injectable/injectable.dart';
+import 'package:hive/hive.dart';
+import '../../features/home/data/models/post/post_model.dart';
+import 'package:injectable/injectable.dart';
 
-// @lazySingleton
-// class HiveService {
-//   late Box<UserModel> userBox;
+@lazySingleton
+class HiveService {
+  late Box<PostModel> postBox;
 
-//   Future<void> init() async {
-//     Hive.registerAdapter(UserModelAdapter());
-//     userBox = await Hive.openBox<UserModel>('users');
-//   }
+  Future<void> init() async {
+    Hive.registerAdapter(PostModelAdapter());
+    postBox = await Hive.openBox<PostModel>('posts');
+  }
 
-//   Future<void> addUsers(List<UserModel> users) async {
-//     await userBox.clear(); // clear old data
-//     await userBox.addAll(users);
-//   }
+  Future<void> addUsers(List<PostModel> posts) async {
+    await postBox.clear();
+    await postBox.addAll(posts);
+  }
 
-//   List<UserModel> getAllUsers() => userBox.values.toList();
-// }
+  List<PostModel> getAllPosts() => postBox.values.toList();
+}
