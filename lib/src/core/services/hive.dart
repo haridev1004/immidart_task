@@ -11,7 +11,7 @@ class HiveService {
     postBox = await Hive.openBox<PostModel>('posts');
   }
 
-  Future<void> addUsers(List<PostModel> posts) async {
+  Future<void> addPosts(List<PostModel> posts) async {
     await postBox.clear();
     await postBox.addAll(posts);
   }

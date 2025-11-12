@@ -34,7 +34,7 @@ class CommonScaffold extends StatelessWidget {
   final Brightness? statusBarBrightness;
 
   const CommonScaffold({
-    Key? key,
+    super.key,
     this.title,
     this.leading,
     this.actions,
@@ -52,7 +52,7 @@ class CommonScaffold extends StatelessWidget {
     this.appBarElevation = 0,
     this.centerTitle = false,
     this.statusBarBrightness,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

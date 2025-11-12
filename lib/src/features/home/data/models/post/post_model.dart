@@ -1,26 +1,27 @@
 import 'package:hive/hive.dart';
 
-part 'post_model.g.dart'; 
+part 'post_model.g.dart';
+
 @HiveType(typeId: 1)
 class PostModel {
   @HiveField(0)
   final int id;
 
   @HiveField(1)
-  final String name;
+  final String title;
 
   @HiveField(2)
-  final String email;
+  final int userId;
 
   const PostModel({
     required this.id,
-    required this.name,
-    required this.email,
+    required this.title,
+    required this.userId,
   });
 
   factory PostModel.fromJson(Map<String, dynamic> json) => PostModel(
-        id: json['id'] ?? 0,
-        name: json['name'] ?? '',
-        email: json['email'] ?? '',
+        id: json['id'] is int ? json['id'] : int.tryParse(json['id'].toString()) ?? 0,
+        title: json['title']?.toString() ?? '',
+        userId: json['userId'] is int ? json['userId'] : int.tryParse(json['userId'].toString()) ?? 0,
       );
 }
